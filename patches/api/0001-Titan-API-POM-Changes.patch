@@ -1,0 +1,41 @@
+From 2acda8e3b59c2ddc82e64e55842ec6b4a24a0028 Mon Sep 17 00:00:00 2001
+From: Jacob Andersen <jacob@algorithmjunkie.com>
+Date: Sun, 28 Feb 2021 15:45:00 -0800
+Subject: [PATCH] Titan-API POM Changes
+
+---
+ pom.xml | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/pom.xml b/pom.xml
+index af17cd24..494ade8a 100644
+--- a/pom.xml
++++ b/pom.xml
+@@ -3,18 +3,18 @@
+          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+     <modelVersion>4.0.0</modelVersion>
+     <parent>
+-        <groupId>com.destroystokyo.paper</groupId>
+-        <artifactId>paper-parent</artifactId>
++        <groupId>dev.jacobandersen.titan</groupId>
++        <artifactId>titan-parent</artifactId>
+         <version>dev-SNAPSHOT</version>
++        <relativePath>../pom.xml</relativePath>
+     </parent>
+ 
+-    <groupId>com.destroystokyo.paper</groupId>
+-    <artifactId>paper-api</artifactId>
++    <artifactId>titan-api</artifactId>
+     <version>1.16.5-R0.1-SNAPSHOT</version>
+     <packaging>jar</packaging>
+ 
+-    <name>Paper-API</name>
+-    <url>https://github.com/PaperMC/Paper</url>
++    <name>Titan-API</name>
++    <url>https://github.com/simpleauthority/titan</url>
+     <description>An enhanced plugin API for Minecraft servers.</description>
+ 
+     <properties>
+-- 
+2.30.0
+

@@ -1,0 +1,30 @@
+<project>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>dev.jacobandersen.titan</groupId>
+    <artifactId>titan-parent</artifactId>
+    <version>dev-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>Titan (Parent)</name>
+
+    <properties>
+        <repo>https://nexus.jacobandersen.dev/repository/titan/</repo>
+        <skipTests>true</skipTests>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>simple</id>
+            <url>https://nexus.jacobandersen.dev/repository/maven-public/</url>
+        </repository>
+    </repositories>
+
+    <build>
+        <defaultGoal>install</defaultGoal>
+        <finalName>${project.artifactId}</finalName>
+    </build>
+    <modules>
+        <module>Titan-API</module>
+        <module>Titan-Server</module>
+    </modules>
+</project>

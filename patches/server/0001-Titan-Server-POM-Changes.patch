@@ -1,0 +1,103 @@
+From 9656da92d07a6783ea80e3afda10dedc611d8cd1 Mon Sep 17 00:00:00 2001
+From: Jacob Andersen <jacob@algorithmjunkie.com>
+Date: Sun, 28 Feb 2021 15:50:00 -0800
+Subject: [PATCH] Titan-Server POM Changes
+
+---
+ pom.xml                                       | 35 +++++++++++--------
+ .../bukkit/craftbukkit/util/Versioning.java   |  2 +-
+ 2 files changed, 21 insertions(+), 16 deletions(-)
+
+diff --git a/pom.xml b/pom.xml
+index 9ba379b7e..33f643c7a 100644
+--- a/pom.xml
++++ b/pom.xml
+@@ -1,11 +1,19 @@
+ <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+     <modelVersion>4.0.0</modelVersion>
+-    <artifactId>paper</artifactId>
+-    <packaging>jar</packaging>
++    <parent>
++        <groupId>dev.jacobandersen.titan</groupId>
++        <artifactId>titan-parent</artifactId>
++        <version>dev-SNAPSHOT</version>
++        <relativePath>../pom.xml</relativePath>
++    </parent>
++    
++    <artifactId>titan-server</artifactId>
+     <version>1.16.5-R0.1-SNAPSHOT</version>
+-    <name>Paper</name>
+-    <url>https://papermc.io</url>
++    <packaging>jar</packaging>
++
++    <name>Titan</name>
++    <url>https://jacobandersen.dev</url>
+ 
+     <properties>
+         <!-- <skipTests>true</skipTests> Paper - This [was] not going to end well -->
+@@ -18,17 +26,10 @@
+         <maven.compiler.target>1.8</maven.compiler.target>
+     </properties>
+ 
+-    <parent>
+-        <groupId>com.destroystokyo.paper</groupId>
+-        <artifactId>paper-parent</artifactId>
+-        <version>dev-SNAPSHOT</version>
+-        <relativePath>../pom.xml</relativePath>
+-    </parent>
+-
+     <dependencies>
+         <dependency>
+-            <groupId>com.destroystokyo.paper</groupId>
+-            <artifactId>paper-api</artifactId>
++            <groupId>dev.jacobandersen.titan</groupId>
++            <artifactId>titan-api</artifactId>
+             <version>${project.version}</version>
+             <scope>compile</scope>
+         </dependency>
+@@ -162,6 +163,10 @@
+             <id>spigotmc-public</id>
+             <url>https://hub.spigotmc.org/nexus/content/groups/public/</url>
+         </repository>
++        <repository>
++            <id>papermc-public</id>
++            <url>https://papermc.io/repo/repository/maven-public/</url>
++        </repository>
+     </repositories>
+ 
+     <pluginRepositories>
+@@ -173,7 +178,7 @@
+ 
+     <!-- This builds a completely 'ready to start' jar with all dependencies inside -->
+     <build>
+-        <finalName>paper-${minecraft.version}</finalName>
++        <finalName>titan-${minecraft.version}</finalName>
+         <defaultGoal>clean install</defaultGoal> <!-- Paper -->
+         <plugins>
+             <plugin>
+@@ -379,7 +384,7 @@
+                     <plugin>
+                         <groupId>org.apache.maven.plugins</groupId>
+                         <artifactId>maven-checkstyle-plugin</artifactId>
+-                        <version>3.1.1</version>
++                        <version>3.1.2</version>
+                         <executions>
+                             <execution>
+                                 <phase>process-classes</phase>
+diff --git a/src/main/java/org/bukkit/craftbukkit/util/Versioning.java b/src/main/java/org/bukkit/craftbukkit/util/Versioning.java
+index 674096cab..d6d7a3845 100644
+--- a/src/main/java/org/bukkit/craftbukkit/util/Versioning.java
++++ b/src/main/java/org/bukkit/craftbukkit/util/Versioning.java
+@@ -11,7 +11,7 @@ public final class Versioning {
+     public static String getBukkitVersion() {
+         String result = "Unknown-Version";
+ 
+-        InputStream stream = Bukkit.class.getClassLoader().getResourceAsStream("META-INF/maven/com.destroystokyo.paper/paper-api/pom.properties");
++        InputStream stream = Bukkit.class.getClassLoader().getResourceAsStream("META-INF/maven/dev.jacobandersen.titan/titan-api/pom.properties");
+         Properties properties = new Properties();
+ 
+         if (stream != null) {
+-- 
+2.30.0
+
